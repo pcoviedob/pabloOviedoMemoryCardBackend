@@ -2,6 +2,7 @@
 const THEMES_CHARACTERS='characters';
 const THEMES_FLAGS='flags';
 const THEMES_FRUITS='fruits';
+const THEMES_SHIPS='ships';
 
 
 const express = require('express')
@@ -12,6 +13,7 @@ app.use(cors());
 const charactersImage =["","assets/Luffy.png", "assets/Zoro.png", "assets/Sanji.png", "assets/Nami.png", "assets/Nico.png", "assets/Choper.png", "assets/Franky.png", "assets/Usop.png", "assets/Jimbe.png", "assets/Sabo.png", "assets/Ace.png", "assets/Brook.png"];
 const flagsImage=["","assets/luffyf.png", "assets/zorof.png", "assets/sanjif.png", "assets/namif.png", "assets/nicof.png", "assets/choperf.png", "assets/frankyf.png", "assets/usopf.png", "assets/jimbef.png", "assets/sabof.png", "assets/acef.png", "assets/brookf.png"];
 const fruitsImage=["","assets/luccifr.png", "assets/brookfr.png", "assets/choperfr.png", "assets/kaidofr.png", "assets/kidfr.png", "assets/lawfr.png", "assets/luffyfr.png", "assets/marcofr.png", "assets/moriafr.png", "assets/sabofr.png", "assets/smilefr.png", "assets/crocodilefr.png"];
+const shipsImage=["","assets/boash.png", "assets/whitebeardsh.png", "assets/lawsh.png", "assets/shankssh.png", "assets/dragonsh.png", "assets/merrysh.png", "assets/thousandsh.png", "assets/marinesh.png", "assets/garpsh.png", "assets/bugysh.png", "assets/enelsh.png", "assets/hawkeyesh.png"];
 
 
 app.get('/', (req, res) => {
@@ -63,6 +65,9 @@ switch (themes){
         break;
     case THEMES_FRUITS:
         imageList = fruitsImage;
+        break;
+    case THEMES_SHIPS:
+        imageList = shipsImage;
         break;
     default:
         break;
