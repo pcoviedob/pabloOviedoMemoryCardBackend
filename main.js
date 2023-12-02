@@ -47,7 +47,7 @@ const port = 3000;
 
 app.use(cors());
 
-const dataBaseURL = 'https://pablooviedomemorygame.web.app/';
+const dataBaseURL = 'https://pablooviedomemorygame.firebaseapp.com/';
 
 app.get('/cards/:difficulty/:theme', (request, response) => {
 
