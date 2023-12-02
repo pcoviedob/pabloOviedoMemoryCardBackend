@@ -15,6 +15,29 @@ const port = 3000;
 // app.use(cors({
 //   origin: 'https://pablo-oviedo-memory-card-ba-git-debb41-pablos-projects-703cc48d.vercel.app/'
 // }));
+const allowCors = fn => async (req, res) => {
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', 'https://pablooviedomemorygame.web.app/')
+  // another common pattern
+  // res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
+  if (req.method === 'OPTIONS') {
+    res.status(200).end()
+    return
+  }
+  return await fn(req, res)
+}
+
+const handler = (req, res) => {
+  const d = new Date()
+  res.end(d.toString())
+}
+
+module.exports = allowCors(handler)
 
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "https://pablo-oviedo-memory-card-ba-git-debb41-pablos-projects-703cc48d.vercel.app");
