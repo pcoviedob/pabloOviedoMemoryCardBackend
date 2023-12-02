@@ -5,10 +5,11 @@ const THEMES_FRUITS='fruits';
 const THEMES_SHIPS='ships';
 
 
-const express = require('express')
+const express = require('express');
 var cors = require('cors');
-const app = express()
-const port = 3000
+// const axios = require(axios);
+const app = express();
+const port = 3000;
 app.use(cors());
 const charactersImage =["assets/Luffy.png", "assets/Zoro.png", "assets/Sanji.png", "assets/Nami.png", "assets/Nico.png", "assets/Choper.png", "assets/Franky.png", "assets/Usop.png", "assets/Jimbe.png", "assets/Sabo.png", "assets/Ace.png", "assets/Brook.png"];
 const flagsImage=["assets/luffyf.png", "assets/zorof.png", "assets/sanjif.png", "assets/namif.png", "assets/nicof.png", "assets/choperf.png", "assets/frankyf.png", "assets/usopf.png", "assets/jimbef.png", "assets/sabof.png", "assets/acef.png", "assets/brookf.png"];
