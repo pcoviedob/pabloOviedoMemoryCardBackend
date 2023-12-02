@@ -6,7 +6,7 @@ const THEMES_SHIPS='ships';
 
 
 const express = require('express');
-var cors = require('cors');
+// var cors = require('cors');
 // const axios = require(axios);
 const app = express();
 const port = 3000;
