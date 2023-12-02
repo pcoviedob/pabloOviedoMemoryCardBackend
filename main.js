@@ -16,6 +16,13 @@ const port = 3000;
 //   origin: 'https://pablo-oviedo-memory-card-ba-git-debb41-pablos-projects-703cc48d.vercel.app/'
 // }));
 
+
+const charactersImage =["assets/Luffy.png", "assets/Zoro.png", "assets/Sanji.png", "assets/Nami.png", "assets/Nico.png", "assets/Choper.png", "assets/Franky.png", "assets/Usop.png", "assets/Jimbe.png", "assets/Sabo.png", "assets/Ace.png", "assets/Brook.png"];
+const flagsImage=["assets/luffyf.png", "assets/zorof.png", "assets/sanjif.png", "assets/namif.png", "assets/nicof.png", "assets/choperf.png", "assets/frankyf.png", "assets/usopf.png", "assets/jimbef.png", "assets/sabof.png", "assets/acef.png", "assets/brookf.png"];
+const fruitsImage=["assets/luccifr.png", "assets/brookfr.png", "assets/choperfr.png", "assets/kaidofr.png", "assets/kidfr.png", "assets/lawfr.png", "assets/luffyfr.png", "assets/marcofr.png", "assets/moriafr.png", "assets/sabofr.png", "assets/smilefr.png", "assets/crocodilefr.png"];
+const shipsImage=["assets/boash.png", "assets/whitebeardsh.png", "assets/lawsh.png", "assets/shankssh.png", "assets/dragonsh.png", "assets/merrysh.png", "assets/thousandsh.png", "assets/marinesh.png", "assets/garpsh.png", "assets/bugysh.png", "assets/enelsh.png", "assets/hawkeyesh.png"];
+
+
 const corsOpts = {
     origin: '*',
     methods: [
@@ -28,11 +35,6 @@ const corsOpts = {
         'Access-Control-Allow-Origin'
     ],
 };
-
-const charactersImage =["assets/Luffy.png", "assets/Zoro.png", "assets/Sanji.png", "assets/Nami.png", "assets/Nico.png", "assets/Choper.png", "assets/Franky.png", "assets/Usop.png", "assets/Jimbe.png", "assets/Sabo.png", "assets/Ace.png", "assets/Brook.png"];
-const flagsImage=["assets/luffyf.png", "assets/zorof.png", "assets/sanjif.png", "assets/namif.png", "assets/nicof.png", "assets/choperf.png", "assets/frankyf.png", "assets/usopf.png", "assets/jimbef.png", "assets/sabof.png", "assets/acef.png", "assets/brookf.png"];
-const fruitsImage=["assets/luccifr.png", "assets/brookfr.png", "assets/choperfr.png", "assets/kaidofr.png", "assets/kidfr.png", "assets/lawfr.png", "assets/luffyfr.png", "assets/marcofr.png", "assets/moriafr.png", "assets/sabofr.png", "assets/smilefr.png", "assets/crocodilefr.png"];
-const shipsImage=["assets/boash.png", "assets/whitebeardsh.png", "assets/lawsh.png", "assets/shankssh.png", "assets/dragonsh.png", "assets/merrysh.png", "assets/thousandsh.png", "assets/marinesh.png", "assets/garpsh.png", "assets/bugysh.png", "assets/enelsh.png", "assets/hawkeyesh.png"];
 
 
 app.get('/', (req, res) => {
