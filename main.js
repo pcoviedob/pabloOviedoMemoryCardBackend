@@ -36,6 +36,8 @@ const corsOpts = {
     ],
 };
 
+const expressApp = express();
+expressApp.use(cors(corsOpts));
 
 app.get('/', (req, res) => {
   res.send(data)
