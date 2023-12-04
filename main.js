@@ -5,7 +5,7 @@ const THEMES_FRUITS='fruits';
 const THEMES_SHIPS='ships';
 
 
-const express = require('express');
+// const express = require('express');
 // var cors = require('cors');
 // const axios = require(axios);
 // const app = express();
@@ -16,6 +16,7 @@ const express = require('express');
 //   origin: 'https://pablo-oviedo-memory-card-ba-git-debb41-pablos-projects-703cc48d.vercel.app/'
 // }));
 
+const databaseURL = 'https://pablooviedomemorygame-default-rtdb.firebaseio.com/';
 
 const charactersImage =["assets/Luffy.png", "assets/Zoro.png", "assets/Sanji.png", "assets/Nami.png", "assets/Nico.png", "assets/Choper.png", "assets/Franky.png", "assets/Usop.png", "assets/Jimbe.png", "assets/Sabo.png", "assets/Ace.png", "assets/Brook.png"];
 const flagsImage=["assets/luffyf.png", "assets/zorof.png", "assets/sanjif.png", "assets/namif.png", "assets/nicof.png", "assets/choperf.png", "assets/frankyf.png", "assets/usopf.png", "assets/jimbef.png", "assets/sabof.png", "assets/acef.png", "assets/brookf.png"];
@@ -41,19 +42,19 @@ const shipsImage=["assets/boash.png", "assets/whitebeardsh.png", "assets/lawsh.p
 
 const axios = require('axios');
 const express = require('express');
-const cors = require('cors');
+// const cors = require('cors');
 const app = express();
 const port = 3000;
 
-app.use(cors());
+// app.use(cors());
 
 const dataBaseURL = 'https://pablooviedomemorygame.firebaseapp.com/';
 
-app.get('/cards/:difficulty/:theme', (request, response) => {
+// app.get('/cards/:difficulty/:theme', (request, response) => {
 
    
-    response.send(JSON.stringify({error: “OK”}));
-});
+//     response.send(JSON.stringify({error: "OK"}));
+// });
 
 
 module.exports = app;
@@ -61,6 +62,7 @@ module.exports = app;
 app.get('/', (req, res) => {
   res.send(data)
 })
+
 
 app.get('/cards/:difficulty/:themes', (req, res) => {
   
@@ -89,6 +91,34 @@ app.get('/cards/:difficulty/:themes', (req, res) => {
 //   console.log(theme)
   res.send(JSON.stringify(data));
 })
+
+app.get('/scores',(req, res)=>{
+  const url =`${databaseURL}scores.json`;
+  axios.get(url)
+  .then(function (response) {
+
+    var scores=[];
+    for (const key in response.data){
+      
+        const score = response.data[key];
+        scores.push(score);
+      }
+      const result = scores.sort((firstItem, secondItem) => secondItem.score - firstItem.score);
+      console.log(result.slice(0,9));
+      res.send(JSON.stringify(result.slice(0,10)));
+    
+        
+  })
+
+  .catch(function (error) {
+    // handle error
+    console.log(error);
+     res.send("FAIL");
+  })
+  
+ })
+
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
@@ -129,4 +159,4 @@ function shuffle(array){
         const j = Math.floor(Math.random() * (i + 1));
         [array[i], array[j]] =[array[j], array[i]]
     }
-}
+  }
