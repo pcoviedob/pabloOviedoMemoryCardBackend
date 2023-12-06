@@ -1,5 +1,6 @@
 const axios = require('axios');
 const express = require('express');
+const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const THEMES_CHARACTERS='characters';
@@ -20,9 +21,9 @@ const port = 3000;
 app.use(cors());
 
 
-// app.use(bodyParser.urlencoded({ extended: true }));
-// app.use(bodyParser.json());
-// app.use(bodyParser.raw());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(bodyParser.raw());
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
@@ -87,6 +88,21 @@ app.get('/scores',(req, res)=>{
   
  })
 
+ app.post('/score', async (req, res) => {
+  const url =`${databaseURL}scores.json`;
+  let score = req.body;
+  axios.post(url, score)
+  .then(function (response){
+    console.log(response);
+    res.send({value: 'OK'});
+
+  }).catch(function(error){
+    console.log(error);
+    req.send("Add score error");
+  });
+
+ })
+;
 
 
 function getCards(difficulty, themes){
