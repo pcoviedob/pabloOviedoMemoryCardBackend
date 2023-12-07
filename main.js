@@ -98,7 +98,7 @@ app.get('/scores',(req, res)=>{
 
   }).catch(function(error){
     console.log(error);
-    req.send("Add score error");
+    res.send("Add score error");
   });
 
  })
