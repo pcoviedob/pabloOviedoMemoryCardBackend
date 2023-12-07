@@ -29,9 +29,9 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-// app.get('/', (req, res) => {
-//   res.send(data)
-// });
+app.get('/', (req, res) => {
+  res.send(data)
+});
 
 
 app.get('/cards/:difficulty/:themes', (req, res) => {
