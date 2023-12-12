@@ -29,9 +29,9 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-app.get('/', (req, res) => {
-  res.send(data)
-});
+// app.get('/', (req, res) => {
+//   res.send(data)
+// });
 
 
 app.get('/cards/:difficulty/:themes', (req, res) => {
@@ -68,16 +68,23 @@ app.get('/scores',(req, res)=>{
   .then(function (response) {
 
     var scores=[];
+    
     for (const key in response.data){
       
         const score = response.data[key];
         scores.push(score);
       }
-      const result = scores.sort((firstItem, secondItem) => secondItem.score - firstItem.score);
-      console.log(result.slice(0,9));
-      res.send(JSON.stringify(result.slice(0,10)));
+
+     
+
+      // const result = scores.sort((firstItem, secondItem) => secondItem.score - firstItem.score);
+      // console.log(result.slice(0,10));
+      // res.send(JSON.stringify(result.slice(0,10)));
     
-        
+
+      const result = scores;
+      res.send(JSON.stringify(result));
+        console.log("reult",result);
   })
 
   .catch(function (error) {
@@ -90,8 +97,11 @@ app.get('/scores',(req, res)=>{
 
  app.post('/score', async (req, res) => {
   const url =`${databaseURL}scores.json`;
+  
+
   let score = req.body;
-  axios.post(url, score)
+  axios
+  .post(url, score)
   .then(function (response){
     console.log(response);
     res.send({value: 'OK'});
